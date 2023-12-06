@@ -2,6 +2,7 @@ package main
 
 import (
 	"aoc2023/day1"
+	"aoc2023/day2"
 	"bufio"
 	"flag"
 	"fmt"
@@ -28,7 +29,12 @@ func main() {
 		} else {
 			day1Part2()
 		}
-
+	case 2:
+		if *partFlag == 1 {
+			day2Part1()
+		} else {
+			// day2Part2()
+		}
 	}
 }
 
@@ -61,6 +67,23 @@ func day1Part2() {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		sum += day1.Part2(scanner.Bytes())
+	}
+
+	fmt.Println(sum)
+}
+
+func day2Part1() {
+	file, err := os.Open("./day2/input.txt")
+	if err != nil {
+		panic(err)
+	}
+	defer file.Close()
+
+	sum := 0
+
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		sum += day2.Part1(scanner.Bytes())
 	}
 
 	fmt.Println(sum)
