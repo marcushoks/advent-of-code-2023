@@ -33,7 +33,7 @@ func main() {
 		if *partFlag == 1 {
 			day2Part1()
 		} else {
-			// day2Part2()
+			day2Part2()
 		}
 	}
 }
@@ -84,6 +84,23 @@ func day2Part1() {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		sum += day2.Part1(scanner.Bytes())
+	}
+
+	fmt.Println(sum)
+}
+
+func day2Part2() {
+	file, err := os.Open("./day2/input.txt")
+	if err != nil {
+		panic(err)
+	}
+	defer file.Close()
+
+	sum := 0
+
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		sum += day2.Part2(scanner.Bytes())
 	}
 
 	fmt.Println(sum)
